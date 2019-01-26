@@ -49,7 +49,7 @@ KEN	Kénitra
 KHE	Khemisset
 KHN	Khenifra
 KHO	Khouribga
-LAA	Laâyoune (EH)
+LAA	Laâyoune
 LAR	Larache
 MAR	Marrakech
 MDF	M’diq-Fnideq
