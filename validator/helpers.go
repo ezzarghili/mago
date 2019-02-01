@@ -2,7 +2,7 @@ package validator
 
 import "regexp"
 
-const spacers = "[-_ ]" // regex expression
+const spacers = "[-_ ]" // default regex expression
 
 // remove separation characters `spacers` from the value string
 func clean(value string, spacers string) string {
