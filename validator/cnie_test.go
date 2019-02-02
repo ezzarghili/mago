@@ -2,9 +2,9 @@ package validator
 
 import "testing"
 
-func TestCINEValidateCorrectEmptyLocation(t *testing.T) {
-	correct := []string{"TA 3433434", "C 783", "_C-783", " C_783 "}
-	validator := CINE{}
+func TestCNIEValidateCorrectEmptyLocation(t *testing.T) {
+	correct := []string{"TA 343434", "T 78309", "_C-798083", " C_109783 "}
+	validator := CNIE{}
 	for _, v := range correct {
 		if !validator.Validate(v) {
 			t.Errorf("failed validating correct token `%s`", v)
@@ -12,9 +12,9 @@ func TestCINEValidateCorrectEmptyLocation(t *testing.T) {
 	}
 }
 
-func TestCINEValidateWrongEmptyLocation(t *testing.T) {
+func TestCNIEValidateWrongEmptyLocation(t *testing.T) {
 	incorrect := []string{"3433434", "78323fdf", "_Ccc 783", " Cdf "}
-	validator := CINE{}
+	validator := CNIE{}
 	for _, v := range incorrect {
 		if validator.Validate(v) {
 			t.Errorf("failed validating incorrect token `%s`", v)
@@ -22,15 +22,15 @@ func TestCINEValidateWrongEmptyLocation(t *testing.T) {
 	}
 }
 
-func TestCINEValidateWithSpacers(t *testing.T) {
-	correct := []string{"TA*3433434", "C.783", "*C+783", " C+783 "}
-	validator := CINE{Spacer: `[*.+ ]`}
+func TestCNIEValidateWithSpacers(t *testing.T) {
+	correct := []string{"TA*343434", "C.70983", "*C+70983", " C+70983 "}
+	validator := CNIE{Spacer: `[*.+ ]`}
 	for _, v := range correct {
 		if !validator.Validate(v) {
 			t.Errorf("failed validating correct token `%s`", v)
 		}
 	}
-	incorrect := []string{"TA_3433434", "C-783", "_C-783", " C_783 "}
+	incorrect := []string{"TA_343434", "C-70983", "_C-70983", " 70983 "}
 	for _, v := range incorrect {
 		if validator.Validate(v) {
 			t.Errorf("failed validating incorrect token `%s`", v)
